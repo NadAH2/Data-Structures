@@ -22,7 +22,7 @@ BEGIN
         END_IF
     END_FOR
 
-    Write(sum)
+    Write(sum);
 END
 
 
@@ -61,5 +61,5 @@ BEGIN
 
         END_IF
     END_FOR
-Write(sum)
+Write(sum);
 END
