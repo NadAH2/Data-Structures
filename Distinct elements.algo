@@ -22,7 +22,7 @@ BEGIN
             END_IF
     
     END_FOR 
-Write(sum)
+Write(sum);
 END
 
 ALGORITHM SumHashTab
@@ -60,5 +60,5 @@ BEGIN
 
         END_IF
     END_FOR
-Write(sum)
+Write(sum);
 END
