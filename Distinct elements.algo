@@ -1,0 +1,64 @@
+ALGORITHM SumArray
+VAR
+    tab1 : ARRAY_OF INTEGER[10];
+    tab2 : ARRAY_OF INTEGER[10];
+    i,j: INTEGER;
+    sum:INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+
+        FOR j FROM 0 TO tab2.length-1 STEP 1  DO
+    
+            IF (tab1[i]<>tab2[j] AND j=tab2.length-1) THEN
+                sum=sum+tab1[i];
+            END_IF
+        END_FOR
+    
+    END_FOR
+    FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+        FOR j FROM 0 TO tab1.length-1 STEP 1 DO
+            IF (tab2[i]<>tab1[j] AND j=tab1.length-1 ) THEN
+                sum=sum+tab2[i];
+            END_IF
+    
+    END_FOR 
+Write(sum)
+END
+
+ALGORITHM SumHashTab
+VAR
+    tabHa:HASH_TABLE<INTEGER,INTEGER> ; 
+    tab1 : ARRAY_OF INTEGER[10];
+    tab2 : ARRAY_OF INTEGER[10];
+    elm : ARRAY_OF INTEGER[20];
+    i,count:INTEGER;
+    sum:INTEGER:=0;
+BEGIN
+  // Insert all the elements from sets
+    FOR i FROM 0 TO tab1.length-1 STEP 1 DO
+        IF (tabHa.lookup(tab1[i])=TRUE) THEN
+            count:=tabHa.get(tab1[i]);
+            tabHa.insert((tab1[i]),count+1);
+        END_IF
+        ELSE
+            tabHa.insert(tab1[i],1);
+        END_IF
+    END_FOR
+    FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+        IF (tabHa.lookup(tab2[i])=TRUE) THEN
+            count:=tabHa.get(tab2[i]);
+            tabHa.insert((tab2[i]),count+1);
+        END_IF
+        ELSE
+            tabHa.insert(tab2[i],1);
+        END_IF
+    END_FOR
+    elm:= tabHa.getKeys();
+    FOR i FROM 0 TO tabHa.length-1 STEP 1  DO
+        IF (tabHa.get(tabHa[i])=1) THEN
+            sum=sum+tabHa[i];
+
+        END_IF
+    END_FOR
+Write(sum)
+END
