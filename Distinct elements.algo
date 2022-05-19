@@ -10,7 +10,7 @@ BEGIN
         FOR j FROM 0 TO tab2.length-1 STEP 1  DO
     
             IF (tab1[i]<>tab2[j] AND j=tab2.length-1) THEN
-                sum=sum+tab1[i];
+                sum:=sum+tab1[i];
             END_IF
         END_FOR
     
@@ -18,7 +18,7 @@ BEGIN
     FOR i FROM 0 TO tab2.length-1 STEP 1  DO
         FOR j FROM 0 TO tab1.length-1 STEP 1 DO
             IF (tab2[i]<>tab1[j] AND j=tab1.length-1 ) THEN
-                sum=sum+tab2[i];
+                sum:=sum+tab2[i];
             END_IF
     
     END_FOR 
@@ -53,10 +53,10 @@ BEGIN
             tabHa.insert(tab2[i],1);
         END_IF
     END_FOR
-    elm:= tabHa.getKeys();
+   
     FOR i FROM 0 TO tabHa.length-1 STEP 1  DO
         IF (tabHa.get(tabHa[i])=1) THEN
-            sum=sum+tabHa[i];
+            sum:=sum+tabHa[i];
 
         END_IF
     END_FOR
